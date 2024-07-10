@@ -51,6 +51,9 @@ export default {
   methods: {
     async searchCity() {
       const apiKey = import.meta.env.VITE_API_KEY;
+      try{
+
+      }
       const response = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${this.city}&limit=1&appid=${apiKey}`);
       const data = response.data
       if (data.length > 0) {
