@@ -1,11 +1,11 @@
 <script>
-import MapShow from "./MapBox.vue"
+import MapSection from "./MapSection.vue"
 import axios from 'axios'
 
 export default {
   name: 'HomeComponent',
   components: {
-    MapShow
+    MapSection
   },
   data() {
     return {
@@ -75,8 +75,9 @@ export default {
 </script>
 
 <template>
-  <!--    first page section start-->
+
   <div>
+    <!--    first page section start-->
     <div class=" w-[100%] h-[95vh] ">
       <div class="w-[100%]  h-[70vh] p-2 flex justify-center relative"><img src="../assets/WeatherForcast.svg"
                                                                             alt="Vue logo"
@@ -92,31 +93,14 @@ export default {
         </button>
       </div>
     </div>
+    <!--    first page section end-->
     <div class="p-[3px] bg-[#ACD4F7]">
 
     </div>
-    <!--    first page section end-->
+
     <!--    map section start-->
     <div ref="menuSectionRef">
-    <div class="flex w-[100%]" >
-      <div class="w-[50%]  h-[70vh] relative">
-
-        <MapShow/>
-
-
-      </div>
-
-
-      <div class="w-[50%] border h-[70vh] flex justify-center relative ">
-        <p class="text-3xl bold pt-2">
-          Weekly Updates
-        </p>
-        <img src="../assets/6982819_3353164.svg"
-             alt="Vue logo"
-             class="h-[100%] w-[100%] absolute">
-
-      </div>
-    </div>
+    <MapSection />
     </div>
     <!--    map section end-->
     <div class="p-[3px] bg-[#ACD4F7]">
