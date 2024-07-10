@@ -1,10 +1,11 @@
 <script>
 import MapSection from "./MapSection.vue"
 import axios from 'axios'
-
+import HomeFirstSection from "./HomeFirstSection.vue"
 export default {
   name: 'HomeComponent',
   components: {
+    HomeFirstSection,
     MapSection
   },
   data() {
@@ -32,13 +33,7 @@ export default {
         return this.Day[i];
       }
     },
-    handleViewMoreClick() {
-      console.log("button pressed")
-      if (this.$refs.menuSectionRef) {
-        this.$refs.menuSectionRef.scrollIntoView({behavior: 'smooth'});
-      }
 
-    },
     async getData() {
       try {
         const lond = this.$store.state.long
@@ -78,34 +73,20 @@ export default {
 
   <div>
     <!--    first page section start-->
-    <div class=" w-[100%] h-[95vh] ">
-      <div class="w-[100%]  h-[70vh] p-2 flex justify-center relative"><img src="../assets/WeatherForcast.svg"
-                                                                            alt="Vue logo"
-                                                                            class="h-[100%] w-[100%] absolute">
-
+    <HomeFirstSection />
+      <!--    first page section end-->
+      <div class="p-[3px] bg-[#ACD4F7]">
 
       </div>
-      <div class="flex w-full flex-col justify-center items-center text-center">
-        <h1 class="font-bold text-3xl pb-3">Welcome to Weather Walley</h1>
 
-        <button class="bg-[#79A3FF] py-2 px-8 rounded-lg shadow-lg font-bold " @click="handleViewMoreClick">Get Weekly
-          Updates
-        </button>
+      <!--    map section start-->
+      <div ref="menuSectionRef" id="mapSection">
+        <MapSection/>
       </div>
-    </div>
-    <!--    first page section end-->
-    <div class="p-[3px] bg-[#ACD4F7]">
+      <!--    map section end-->
+      <div class="p-[3px] bg-[#ACD4F7]">
 
-    </div>
-
-    <!--    map section start-->
-    <div ref="menuSectionRef">
-    <MapSection />
-    </div>
-    <!--    map section end-->
-    <div class="p-[3px] bg-[#ACD4F7]">
-
-    </div>
+      </div>
   </div>
 
   <!--  Weather List Render start-->
